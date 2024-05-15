@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - 'touch .npmignore'
+      - 'npm_config_user=root n 18.17.0'
+      - 'npm_config_user=root npm install next@latest react@latest react-dom@latest'
+  pre_build:
+    commands:
+      - 'npm_config_user=root npm install'
+  build:
+    commands:
+      - 'npm_config_user=root npm run build'
+
+  post_build:
+    commands:
+      - 'aws s3 sync "dist/" "s3://demo.ableaura.com" --delete --acl "public-read"'
+artifacts:
+  base-directory: dist
+  files:
+    - '**/*'
+  discard-paths: yes
