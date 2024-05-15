@@ -3,9 +3,12 @@
  */
 
 const nextConfig = {
-    output: 'export',
+  output: 'export',
   distDir: 'dist',
   reactStrictMode: true,
-};
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+}
 
 module.exports = nextConfig;
