@@ -8,10 +8,10 @@ phases:
       - 'npm_config_user=root npm install next@latest react@latest react-dom@latest'
   pre_build:
     commands:
-      - 'npm_config_user=root npm install'
+      - 'npm install'
   build:
     commands:
-      - 'npm_config_user=root npm run build'
+      - 'npm run build'
 
   post_build:
     commands:
